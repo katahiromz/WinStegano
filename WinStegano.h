@@ -3,6 +3,7 @@
 // License: MIT
 #pragma once
 
+HFONT CreateSteganoFont(void);
 HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCSTR text, INT text_len, INT margin);
 HBITMAP WriteStegano(HBITMAP hbm, HBITMAP hbmMono);
 HBITMAP ReadStegano(HBITMAP hbm);
