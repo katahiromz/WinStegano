@@ -4,7 +4,7 @@
 #pragma once
 
 HFONT CreateSteganoFont(void);
-HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCSTR text, INT text_len, INT margin);
+HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCTSTR text, INT text_len, INT margin);
 HBITMAP Make32BppDIB(HBITMAP hbm, LPDWORD *ppdwBits);
 
 HBITMAP WriteStegano(HBITMAP hbm, HBITMAP hbmMono);

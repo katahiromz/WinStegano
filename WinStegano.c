@@ -17,7 +17,7 @@ HFONT CreateSteganoFont(void)
     return CreateFontIndirectW(&lf);
 }
 
-HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCSTR text, INT text_len, INT margin)
+HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCTSTR text, INT text_len, INT margin)
 {
     if (!text || !text[0])
         return NULL;
@@ -28,7 +28,7 @@ HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCSTR text, INT text_len, INT mar
     SIZE textSize = { 0, 0 };
     HDC hDC = CreateCompatibleDC(NULL);
     HGDIOBJ hFontOld = SelectObject(hDC, hFont);
-    GetTextExtentPoint32A(hDC, text, text_len, &textSize);
+    GetTextExtentPoint32(hDC, text, text_len, &textSize);
     SelectObject(hDC, hFontOld);
     DeleteDC(hDC);
 
@@ -49,7 +49,7 @@ HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCSTR text, INT text_len, INT mar
     SetTextAlign(hDC, TA_LEFT | TA_TOP);
     SetBkMode(hDC, TRANSPARENT);
     SetTextColor(hDC, RGB(0, 0, 0));
-    TextOutA(hDC, margin, margin, text, text_len);
+    TextOut(hDC, margin, margin, text, text_len);
     SelectObject(hDC, hFontOld);
     SelectObject(hDC, hbmOld);
     DeleteDC(hDC);
