@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -o WinStegano WinStegano.c SaveBitmapToFile.c -lgdi32
+gcc -o WinStegano main.c WinStegano.c SaveBitmapToFile.c -lgdi32
