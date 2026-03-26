@@ -1,0 +1,3 @@
+# WinStegano
+
+License: MIT

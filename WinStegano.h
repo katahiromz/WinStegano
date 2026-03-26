@@ -1,0 +1,8 @@
+// WinStegano.h --- Steganography for Windows
+// Author: katahiromz
+// License: MIT
+#pragma once
+
+HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCSTR text, INT text_len, INT margin);
+HBITMAP WriteStegano(HBITMAP hbm, HBITMAP hbmMono);
+HBITMAP ReadStegano(HBITMAP hbm);
