@@ -87,7 +87,7 @@ HBITMAP CreateMonoBitmapFromText(HFONT hFont, LPCSTR text, INT text_len, INT mar
     return hbm;
 }
 
-HBITMAP Make32BppDIB(HBITMAP hbm, LPDWORD *pdwBits)
+HBITMAP Make32BppDIB(HBITMAP hbm, LPDWORD *ppdwBits)
 {
     BITMAP bm;
     if (!GetObjectW(hbm, sizeof(bm), &bm))
@@ -103,7 +103,7 @@ HBITMAP Make32BppDIB(HBITMAP hbm, LPDWORD *pdwBits)
 
     HDC hDC1 = CreateCompatibleDC(NULL);
     HDC hDC2 = CreateCompatibleDC(NULL);
-    HBITMAP hbmNew = CreateDIBSection(hDC1, &bmi, DIB_RGB_COLORS, (void**)pdwBits, NULL, 0);
+    HBITMAP hbmNew = CreateDIBSection(hDC1, &bmi, DIB_RGB_COLORS, (void**)ppdwBits, NULL, 0);
     HGDIOBJ hbmOld1 = SelectObject(hDC1, hbm);
     HGDIOBJ hbmOld2 = SelectObject(hDC2, hbmNew);
     BitBlt(hDC2, 0, 0, bm.bmWidth, bm.bmHeight, hDC1, 0, 0, SRCCOPY);
